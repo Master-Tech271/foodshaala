@@ -130,6 +130,7 @@ class UserController extends BaseController {
             'firstname' => $user['firstname'],
             'lastname' => $user['lastname'],
             'email' => $user['email'],
+            'type' => $user['type'],
             'isLoggedIn' => true,
         ];
         session()->set($data);

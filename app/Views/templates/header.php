@@ -33,7 +33,7 @@
             </li>
             <?php else:  ?>
             <li class="nav-item">
-              <a class="nav-link <?= ($uri->getSegment(1) == 'dashboard') ? 'active' : '' ?>" href="/dashboard">Dashboard</a>
+              <a class="nav-link <?= ($uri->getSegment(1) == 'dashboard') ? 'active' : '' ?>" href="/<?= (session()->get('type') == 'user' ? 'cart' : 'dashboard' ) ?>"><?= (session()->get('type') == 'user' ? 'Cart' : 'Dashboard' ) ?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link <?= ($uri->getSegment(1) == 'profile') ? 'active' : '' ?>" href="/profile">Profile</a>
@@ -46,4 +46,5 @@
         </div>
       </div>
     </nav>
+
 

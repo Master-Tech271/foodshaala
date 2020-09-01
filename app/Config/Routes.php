@@ -35,6 +35,8 @@ $routes->get('logout', 'UserController::logout');
 $routes->match(['get', 'post'], 'login', 'UserController::index', ['filter'=> 'noauth']);
 $routes->match(['get', 'post'], 'register', 'UserController::register', ['filter'=> 'noauth']);
 $routes->match(['get', 'post'], 'profile', 'UserController::profile', ['filter' => 'auth']);
+$routes->get('dashboard', 'DashboardController::index', ['filter' => 'auth']);
+$routes->post('addItem', 'DashboardController::addItem', ['filter' => 'auth']);
 
 /**
  * --------------------------------------------------------------------
