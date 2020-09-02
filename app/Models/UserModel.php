@@ -3,9 +3,11 @@ use CodeIgniter\Model;
 //users table model for manipulation
 class UserModel extends Model {
     protected $table = 'users';
-    protected $allowedFields = ['firstname', 'lastname', 'email', 'type', 'password', 'updated_at'];
+    protected $allowedFields = ['firstname', 'lastname', 'email', 'type', 'password', 'updated_at', 'preference'];
     protected $beforeInsert = ['beforeInsert'];
     protected $beforeUpdate = ['beforeUpdate'];
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
 
     protected function beforeInsert(array $data) {
         $data = $this->passwordHash($data);

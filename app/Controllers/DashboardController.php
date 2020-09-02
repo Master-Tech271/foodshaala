@@ -15,7 +15,6 @@ class DashboardController extends BaseController {
     }
 
     public function addItem() {
-      //  var_dump(session()->get('type'));
         //double checking
         if(session()->get('type') == 'restaurant')  {
             if($this->request->getMethod() == 'post') {
@@ -44,6 +43,7 @@ class DashboardController extends BaseController {
                             $newName =  $this->request->getVar('itemname') . '_' . $img->getRandomName();
                             $img->move('./assets/itemimages', $newName);
                             $items = [
+                                'userid' => session()->get('id'),
                                 'itemname' => $this->request->getVar('itemname'),
                                 'itemunit' => $this->request->getVar('itemunit'),
                                 'itemprice' => $this->request->getVar('itemprice'),
@@ -60,6 +60,26 @@ class DashboardController extends BaseController {
                     
                 }
             }
+        }
+        else
+        return redirect()->to('/');
+    }
+
+    //show all items
+    public function show() {
+         //double checking for more security purpose
+         if(session()->get('type') == 'restaurant')  {
+            if($this->request->getMethod() == 'get') {
+                $model = new AddItemModel();
+                $data['items'] = $model->where('userid', session()->get('id'))
+                                       ->findAll();
+                $data['title'] = 'Dashboard | AllItems';
+                $data['message'] = 'This Items Added by you!..';
+                echo view('templates/header.php', $data);
+                echo view('components/messages.php', $data); // for messages
+                echo view('components/items.php'); //reuse this components
+                echo view('templates/footer.php');
+            }               
         }
         else
         return redirect()->to('/');

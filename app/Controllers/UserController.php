@@ -41,6 +41,7 @@ class UserController extends BaseController {
         echo view('templates/footer.php');
     }
 
+    // customer registration
     public function register() {
         $data = [];
         $data['title'] = 'Register';
@@ -50,14 +51,13 @@ class UserController extends BaseController {
                 'firstname' => 'required|min_length[3]|max_length[20]',
                 'lastname' => 'required|min_length[3]|max_length[30]',
                 'email' => 'required|min_length[6]|max_length[50]|valid_email|is_unique[users.email]',
-                'type' => 'required|min_length[4]|max_length[10]',
                 'password' => 'required|min_length[8]|max_length[255]',
-                'cpassword' => 'matches[password]',
+                'cpassword' => 'matches[password]',     
+                'preference' => 'required|min_length[3]|max_length[7]',           
             ];
             //we don't use custom messages for showing errors
-            if(!$this->validate($rules)) {
+            if(!$this->validate($rules))
                 $data['validation'] = $this->validator; // list of errors
-            }
             else{
                 //store our database
                 $model = new UserModel();
@@ -66,7 +66,8 @@ class UserController extends BaseController {
                     'lastname' => $this->request->getVar('lastname'),
                     'email' => $this->request->getVar('email'),
                     'password' => $this->request->getVar('password'),
-                    'type' => $this->request->getVar('type'),
+                    'type' => 'user',
+                    'preference' => $this->request->getVar('preference'),
                 ];
                 $model->save($userInfo);
                 $session = session();
@@ -74,7 +75,45 @@ class UserController extends BaseController {
                 return redirect()->to('/login');
             }
         }
-        echo view('templates/header.php', $data);
+        echo view('templates/header.php', $data);        
+        echo view('components/preference.php');
+        echo view('pages/register.php');
+        echo view('templates/footer.php');
+    }
+
+    //restaurant registration
+    public function restaurantRegister() {
+        $data = [];
+        $data['title'] = 'Register';
+        if($this->request->getMethod() == 'post') {
+            //validation rules
+            $rules = [
+                'firstname' => 'required|min_length[3]|max_length[20]',
+                'lastname' => 'required|min_length[3]|max_length[30]',
+                'email' => 'required|min_length[6]|max_length[50]|valid_email|is_unique[users.email]',
+                'password' => 'required|min_length[8]|max_length[255]',
+                'cpassword' => 'matches[password]',                
+            ];
+            //we don't use custom messages for showing errors
+            if(!$this->validate($rules))
+                $data['validation'] = $this->validator; // list of errors
+            else{
+                //store our database
+                $model = new UserModel();
+                $userInfo = [
+                    'firstname' => $this->request->getVar('firstname'),
+                    'lastname' => $this->request->getVar('lastname'),
+                    'email' => $this->request->getVar('email'),
+                    'password' => $this->request->getVar('password'),
+                    'type' => 'restaurant',                    
+                ];
+                $model->save($userInfo);
+                $session = session();
+                $session->setFlashdata('success', 'Registration Successfull, Now you can Login.');
+                return redirect()->to('/login');
+            }
+        }
+        echo view('templates/header.php', $data);   
         echo view('pages/register.php');
         echo view('templates/footer.php');
     }

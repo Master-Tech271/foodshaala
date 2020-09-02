@@ -26,7 +26,7 @@
                             <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" readonly value="<?= $user['email']?>"/>
                         </div>
                         <div class="col-6 mb-3">
-                            <label for="type" class="form-label">Choose Type</label>
+                            <label for="type" class="form-label">Type</label>
                             <input type="text" name="type" id="type" class="form-control" readonly value="<?= $user['type'] ?>" />
                         </div>
                         <div class="col-6 mb-3">

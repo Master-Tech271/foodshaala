@@ -2,6 +2,9 @@
     <div class="row">
         <div class="col-12  text-center">
             <h1 class="text-success">Admin</h1>
+            <a href="/dashboard/allitems" class="btn btn-success shadow-lg float-right">
+                All Items
+            </a>
         </div>
     </div>
 </div>

@@ -34,9 +34,13 @@ $routes->get('/', 'HomeController::index');
 $routes->get('logout', 'UserController::logout');
 $routes->match(['get', 'post'], 'login', 'UserController::index', ['filter'=> 'noauth']);
 $routes->match(['get', 'post'], 'register', 'UserController::register', ['filter'=> 'noauth']);
+$routes->match(['get', 'post'], 'restaurantregister', 'UserController::restaurantRegister', ['filter'=> 'noauth']);
 $routes->match(['get', 'post'], 'profile', 'UserController::profile', ['filter' => 'auth']);
 $routes->get('dashboard', 'DashboardController::index', ['filter' => 'auth']);
+$routes->get('dashboard/allitems', 'DashboardController::show', ['filter' => 'auth']);
 $routes->post('addItem', 'DashboardController::addItem', ['filter' => 'auth']);
+$routes->get('order/:num', 'OrderController::index', ['filter' => 'order']);
+$routes->get('order', 'OrderController::show', ['filter' => 'order']);
 
 /**
  * --------------------------------------------------------------------
