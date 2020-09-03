@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center text-capitalize display-4  text-success">
-                <?= $message ?>
+                <?= $message ?> <?= session()->has('rname') ? session()->get('rname') : '' ?>
             </div>
         </div>
     </div>

@@ -19,9 +19,9 @@ class Filters extends BaseConfig
 	// Always applied before every request
 	public $globals = [
 		'before' => [
-			'usercheck'
+			'usercheck',
+			'csrf',
 			//'honeypot'
-			// 'csrf',
 		],
 		'after'  => [
 			'toolbar',

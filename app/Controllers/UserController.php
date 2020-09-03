@@ -174,8 +174,8 @@ class UserController extends BaseController {
             'type' => $user['type'],
             'isLoggedIn' => true,
         ];
-        if(!$user['type'] == 'user')
-            $data['rname'] = $user['rname'];   
+        if($user['type'] == 'restaurant')
+            $data['rname'] = $user['rname'];
         session()->set($data);
         return true;
     }

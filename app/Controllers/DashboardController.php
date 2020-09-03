@@ -8,11 +8,16 @@ class DashboardController extends BaseController {
     }
 
     public function index() {
-        $data = [];
-        $data['title'] = 'Dashboard';
-        echo view('templates/header.php', $data);
-        echo view('pages/dashboard.php');
-        echo view('templates/footer.php');
+        //double checking
+        if(session()->get('type') == 'restaurant')  {
+            $data = [];
+            $data['title'] = 'Dashboard';
+            echo view('templates/header.php', $data);
+            echo view('pages/dashboard.php');
+            echo view('templates/footer.php');
+        }
+        else
+            return redirect()->to('/');
     }
 
     public function addItem() {
@@ -50,6 +55,7 @@ class DashboardController extends BaseController {
                                 'itemprice' => $this->request->getVar('itemprice'),
                                 'itemstatus' => $this->request->getVar('itemstatus'),
                                 'itemimage' => $newName,
+                                'rname' => session()->get('rname'),
                                 'itemtype' => $this->request->getVar('itemtype'),
                             ];
                             $model = new AddItemModel();
@@ -64,7 +70,7 @@ class DashboardController extends BaseController {
             }
         }
         else
-        return redirect()->to('/');
+            return redirect()->to('/');
     }
 
     //show all items

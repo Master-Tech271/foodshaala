@@ -43,7 +43,7 @@ class OrderController extends BaseController {
                     ];
                 }
                 $orderDetails->save($orderItem);
-                session()->setFlashdata('success', 'Order Placed');
+                session()->setFlashdata('success', 'Order Placed, Wait for Approval and Delivery!..');
                 return redirect()->to('/');
             }
         }

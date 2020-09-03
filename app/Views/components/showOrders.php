@@ -1,6 +1,7 @@
 <?php /* ======================= show orders for restaurant ============================== */ ?>
     <div class="container-fluid my-3">
-        <div class="row w-100 text-center m-0 p-0">
+        <?= $items == null ? '<h1 class="text-center text-danger mb-5 mt-3">No Orders Available</h1>' : ''?>
+        <div class="row w-100 text-center m-0 p-0">        
         <?php foreach($items as  $item): ?>
             <div class="col-md-4 col-sm-6 col-12 mt-3">
                 <div class="card border-0 shadow">

@@ -16,7 +16,7 @@
     <?php /* ===================== NAVBAR ================================*/?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" id="brand_name_">FoodShaala</a>
+        <a class="navbar-brand" href="<?= base_url() ?>" id="brand_name_">FoodShaala</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,7 +37,7 @@
             </li>
             <?php else:  ?>
             <li class="nav-item">
-              <a class="nav-link <?= ($uri->getSegment(1) == 'dashboard' && $uri->getSegment(2) == '') ? 'active' : '' ?>" href="/<?= (session()->get('type') == 'user' ? 'order' : 'dashboard' ) ?>"><?= (session()->get('type') == 'user' ? 'Orders' : 'Dashboard' ) ?></a>
+              <a class="nav-link <?= (($uri->getSegment(1) == 'dashboard' || $uri->getSegment(1) == 'order') && !$uri->getSegment(2) == 'orders') ? 'active' : '' ?>" href="/<?= (session()->get('type') == 'user' ? 'order' : 'dashboard' ) ?>"><?= (session()->get('type') == 'user' ? 'Orders' : 'Dashboard' ) ?></a>
             </li>
             <?php if(session()->get('type') == 'restaurant'): ?>
               <a class="nav-link <?= ($uri->getSegment(1) == 'dashboard' && $uri->getSegment(2) == 'orders') ? 'active' : '' ?>" href="/dashboard/orders">All Orders</a>

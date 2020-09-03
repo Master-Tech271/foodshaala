@@ -1,6 +1,6 @@
 
-    <footer class="footer">
-      <div class="container-fluid fixed-bottom">
+    <footer class="footer mt-5">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-12 text-center mx-auto">
             <div class="card">
