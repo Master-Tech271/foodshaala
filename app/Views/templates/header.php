@@ -7,7 +7,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-
+    <!-- custom css -->
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/css/header.css" type="text/css" />
     <title>FoodShaala | <?= $title?></title>
   </head>
   <body>
@@ -15,7 +16,7 @@
     <?php /* ===================== NAVBAR ================================*/?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">FoodShaala</a>
+        <a class="navbar-brand" href="#" id="brand_name_">FoodShaala</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

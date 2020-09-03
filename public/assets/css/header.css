@@ -1,0 +1,23 @@
+body{
+    box-sizing: border-box;
+}
+
+#brand_name_ {
+    color: yellow;
+    font-weight: bold;
+    animation : brand 7s ease-in infinite normal;
+}
+@keyframes brand {
+    0%{
+        transform: scale(1);
+    }
+    25%{
+        transform: scale(0.8);
+    }
+    50%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0.8);
+    }
+}
