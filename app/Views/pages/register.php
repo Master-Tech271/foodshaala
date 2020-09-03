@@ -40,6 +40,10 @@
                                 <option value="non-veg">Non-Veg</option>
                             </select>
                         </div>
+                        <div class="col-6 mb-3 <?= ($uri->getSegment(1) == 'register') ? 'd-none' : 'd-block' ?>" id="rname">
+                            <label for="preference" class="form-label">Restaurant Name</label>
+                            <input type="text" class="form-control" name="rname" />
+                        </div>
                     </div>
                     <div class="mb-3 text-center">
                             <button class="btn btn-outline-primary shadow-lg">Register</button>

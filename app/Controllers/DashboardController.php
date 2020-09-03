@@ -24,7 +24,7 @@ class DashboardController extends BaseController {
                     'itemunit' => 'required|min_length[2]|max_length[50]',
                     'itemprice' => 'required|min_length[1]|max_length[10]',
                     'itemstatus' => 'required|min_length[1]|max_length[1]',
-                  //  'itemimage' => 'required',
+                    'itemtype' => 'required|min_length[3]|max_length[7]',
                 ];
                 if(!$this->validate($rules)) {
                     $data['validation'] = $this->validator;
@@ -50,6 +50,7 @@ class DashboardController extends BaseController {
                                 'itemprice' => $this->request->getVar('itemprice'),
                                 'itemstatus' => $this->request->getVar('itemstatus'),
                                 'itemimage' => $newName,
+                                'itemtype' => $this->request->getVar('itemtype'),
                             ];
                             $model = new AddItemModel();
                             $model->save($items);

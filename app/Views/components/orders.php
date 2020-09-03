@@ -1,4 +1,4 @@
-<?php /* ======================= show orders ============================== */ ?>
+<?php /* ======================= show orders for users ============================== */ ?>
     <div class="container-fluid my-3">
         <div class="row w-100 text-center m-0 p-0">
             <?php foreach($items as $item): ?>                

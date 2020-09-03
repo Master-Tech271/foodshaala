@@ -11,6 +11,7 @@
                         <?= $item['itemname'] ?>
                     </div>
                     <div class="card-body">
+                        <span class="text-info h5">Item Type  </span>: <span class="text-primary h5"> <?= (isset($item['itemtype'])) ? $item['itemtype'] : 'Veg' ?> </span> <br/>
                         <span class="text-info h5">Price </span>: <span class="text-primary h5"> <?= $item['itemprice'] ?> </span>
                         <br/>
                         <span class="text-info h5">Unit </span>: <span class="text-primary h5"> <?= $item['itemunit'] ?> </span>

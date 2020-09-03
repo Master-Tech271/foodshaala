@@ -92,7 +92,8 @@ class UserController extends BaseController {
                 'lastname' => 'required|min_length[3]|max_length[30]',
                 'email' => 'required|min_length[6]|max_length[50]|valid_email|is_unique[users.email]',
                 'password' => 'required|min_length[8]|max_length[255]',
-                'cpassword' => 'matches[password]',                
+                'cpassword' => 'matches[password]',   
+                'rname' => 'required|min_length[3]|max_length[255]',             
             ];
             //we don't use custom messages for showing errors
             if(!$this->validate($rules))
@@ -105,6 +106,7 @@ class UserController extends BaseController {
                     'lastname' => $this->request->getVar('lastname'),
                     'email' => $this->request->getVar('email'),
                     'password' => $this->request->getVar('password'),
+                    'rname' => $this->request->getVar('rname'),
                     'type' => 'restaurant',                    
                 ];
                 $model->save($userInfo);
@@ -172,6 +174,8 @@ class UserController extends BaseController {
             'type' => $user['type'],
             'isLoggedIn' => true,
         ];
+        if(!$user['type'] == 'user')
+            $data['rname'] = $user['rname'];   
         session()->set($data);
         return true;
     }

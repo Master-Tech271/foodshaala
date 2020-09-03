@@ -5,8 +5,8 @@
             <a href="/dashboard/allitems" class="btn btn-success shadow-lg float-right">
                 All Items
             </a>
-            <a href="/dashboard/orders" class="btn btn-success shadow-lg float-right">
-                Orders
+            <a href="/dashboard/orders" class="btn btn-info shadow-lg float-right mr-3">
+                All Orders
             </a>
         </div>
     </div>
@@ -49,6 +49,13 @@
                             <select name="itemstatus" id="type" class="form-control">
                                 <option value="1">Show</option>
                                 <option value="0">Hide</option>
+                            </select>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <label for="itemtype" class="form-label">Item Type</label>
+                            <select name="itemtype" id="type" class="form-control">
+                                <option value="veg">Veg</option>
+                                <option value="non-veg">Non-Veg</option>
                             </select>
                         </div>
                     </div>
