@@ -1,5 +1,5 @@
 <?php /* ======================= Items ============================== */ ?>
-    <div class="container-fluid my-3">
+    <div class="container-fluid my-3 mb-5">
         <div class="row w-100 text-center m-0 p-0">
         <?php foreach($items as  $item): ?>
             <div class="col-md-4 col-sm-6 col-12 mt-3">

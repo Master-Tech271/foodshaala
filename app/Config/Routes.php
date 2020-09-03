@@ -39,6 +39,7 @@ $routes->match(['get', 'post'], 'profile', 'UserController::profile', ['filter' 
 $routes->get('dashboard', 'DashboardController::index', ['filter' => 'auth']);
 $routes->get('dashboard/allitems', 'DashboardController::show', ['filter' => 'auth']);
 $routes->post('addItem', 'DashboardController::addItem', ['filter' => 'auth']);
+$routes->get('dashboard/orders', 'DashboardController::orders', ['filter' => 'auth']);
 $routes->get('order/:num', 'OrderController::index', ['filter' => 'order']);
 $routes->get('order', 'OrderController::show', ['filter' => 'order']);
 

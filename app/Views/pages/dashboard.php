@@ -5,6 +5,9 @@
             <a href="/dashboard/allitems" class="btn btn-success shadow-lg float-right">
                 All Items
             </a>
+            <a href="/dashboard/orders" class="btn btn-success shadow-lg float-right">
+                Orders
+            </a>
         </div>
     </div>
 </div>

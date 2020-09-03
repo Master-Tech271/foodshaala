@@ -1,5 +1,6 @@
 <?php namespace App\Controllers;
 use App\Models\AddItemModel;
+use App\Models\OrderDetailsModel;
 class DashboardController extends BaseController {
     public function __construct() {
         helper('form');
@@ -84,4 +85,24 @@ class DashboardController extends BaseController {
         else
         return redirect()->to('/');
     }
+    //show all orders particular restaurant
+    public function orders() {
+        //double checking for more security purpose
+        if(session()->get('type') == 'restaurant')  {
+           if($this->request->getMethod() == 'get') { 
+                $orderDetails = new OrderDetailsModel(); 
+                $data['items'] = $orderDetails->where('rid', session()->get('id')) //check restaurant id
+                                               ->where('ord_status', 1) //check order status
+                                               ->findAll(); //fetch all        
+                $data['title'] = 'Dashboard | Order';
+                $data['message'] = 'ALL ORDERS';
+                echo view('templates/header.php', $data);
+                echo view('components/messages.php', $data); // for messages
+                echo view('components/showOrders.php'); //reuse this components
+                echo view('templates/footer.php');   
+           }               
+       }
+       else
+       return redirect()->to('/');
+   }
 }

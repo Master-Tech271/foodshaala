@@ -23,7 +23,8 @@ class OrderController extends BaseController {
                         'orderid' => $orderid,
                         'itemname' => $itemDetails['itemname'],
                         'itemimage' => $itemDetails['itemimage'],
-                        'price' => $prevOrder['price'] + $itemDetails['itemprice'], // update price => prev price + new price
+                        'rid' => $itemDetails['userid'],
+                        'price' => $itemDetails['itemprice'], // update price => prev price + new price
                         'item_qty' => $prevOrder['item_qty'] + 1, // similarly price 
                         'ord_status' => 1,  
                     ];
@@ -36,6 +37,7 @@ class OrderController extends BaseController {
                         'itemname' => $itemDetails['itemname'],
                         'price' => $itemDetails['itemprice'],
                         'itemimage' => $itemDetails['itemimage'],
+                        'rid' => $itemDetails['userid'],
                         'item_qty' => 1,
                         'ord_status' => 1, //del_status by default 0 so, it's no need 
                     ];
@@ -58,7 +60,6 @@ class OrderController extends BaseController {
         echo view('templates/header.php', $data);
         echo view('components/messages.php', $data); // for messages
         echo view('components/showOrders.php'); //reuse this components
-        echo view('templates/footer.php');
-        
+        echo view('templates/footer.php');        
     }
 }

@@ -11,9 +11,11 @@
                         <?= $item['itemname'] ?>
                     </div>
                     <div class="card-body">
-                        <span class="text-info h5">Total Price </span>: <span class="text-primary h5"> <?= $item['price'] ?> </span>
+                        <span class="text-info h5">Price </span>: <span class="text-primary h5"> <?= $item['price'] ?> </span>
                         <br/>
                         <span class="text-info h5">Quantity </span>: <span class="text-primary h5"> <?= $item['item_qty'] ?> </span>
+                        <br/>
+                        <span class="text-info h5">Total Price : </span>: <span class="text-primary h5"> <?= $item['item_qty'] * $item['price']  ?> </span>
                     </div>
                 </div>
             </div> 

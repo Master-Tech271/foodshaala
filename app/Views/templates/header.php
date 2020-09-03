@@ -36,8 +36,11 @@
             </li>
             <?php else:  ?>
             <li class="nav-item">
-              <a class="nav-link <?= ($uri->getSegment(1) == 'dashboard') ? 'active' : '' ?>" href="/<?= (session()->get('type') == 'user' ? 'order' : 'dashboard' ) ?>"><?= (session()->get('type') == 'user' ? 'Orders' : 'Dashboard' ) ?></a>
+              <a class="nav-link <?= ($uri->getSegment(1) == 'dashboard' && $uri->getSegment(2) == '') ? 'active' : '' ?>" href="/<?= (session()->get('type') == 'user' ? 'order' : 'dashboard' ) ?>"><?= (session()->get('type') == 'user' ? 'Orders' : 'Dashboard' ) ?></a>
             </li>
+            <?php if(session()->get('type') == 'restaurant'): ?>
+              <a class="nav-link <?= ($uri->getSegment(1) == 'dashboard' && $uri->getSegment(2) == 'orders') ? 'active' : '' ?>" href="/dashboard/orders">All Orders</a>
+            <?php endif; ?>
             <li class="nav-item">
               <a class="nav-link <?= ($uri->getSegment(1) == 'profile') ? 'active' : '' ?>" href="/profile">Profile</a>
             </li>
